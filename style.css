@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Orbitron', sans-serif;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(270deg, #f5f5f5, #e0e0ff, #c0ffe0, #fff5c0);
+  background-size: 800% 800%;
+  animation: gradientMove 15s ease infinite;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
+}
+
+.stopwatch-box {
+  width: 420px;
+  padding: 40px 30px;
+  border-radius: 25px;
+  background: rgba(255,255,255,0.25);
+  backdrop-filter: blur(15px);
+  box-shadow: 0 0 20px #fff, 0 0 40px #ffea, 0 0 60px #aaffaa;
+  text-align: center;
+  border: 1px solid rgba(255,255,255,0.3);
+  animation: neonPulse 3s infinite alternate;
+}
+
+@keyframes neonPulse {
+  0% { box-shadow: 0 0 20px #fff, 0 0 40px #ffe, 0 0 60px #aaffaa; }
+  100% { box-shadow: 0 0 40px #fff, 0 0 60px #ffe, 0 0 80px #aaffaa; }
+}
+
+.title {
+  font-size: 2rem;
+  color: #333;
+  text-shadow: 0 0 10px #fff, 0 0 20px #fff;
+  margin-bottom: 25px;
+}
+
+#display {
+  font-size: 2.5rem;
+  color: #111;
+  text-shadow: 0 0 10px #fff, 0 0 20px #fff;
+  margin-bottom: 30px;
+}
+
+/* Buttons styling */
+.buttons {
+  display: flex;
+  justify-content: space-between; /* all buttons in a row */
+  gap: 10px; /* spacing between buttons */
+  margin-bottom: 25px;
+  flex-wrap: nowrap; /* prevent wrapping */
+}
+
+.neon-btn {
+  flex: 1; /* equal width buttons */
+  min-width: 60px; /* prevent too narrow on small screens */
+  margin: 0;
+  padding: 10px 0;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+.neon-btn:hover {
+  transform: scale(1.05);
+}
+
+/* Neon colors for buttons */
+.green { border: 2px solid #32cd32; color: #32cd32; box-shadow: 0 0 10px #32cd32; }
+.yellow { border: 2px solid #ffdd33; color: #ffdd33; box-shadow: 0 0 10px #ffdd33; }
+.red { border: 2px solid #ff5555; color: #ff5555; box-shadow: 0 0 10px #ff5555; }
+.blue { border: 2px solid #33ccff; color: #33ccff; box-shadow: 0 0 10px #33ccff; }
+
+.neon-btn.active {
+  animation: glowPulse 1.5s infinite alternate;
+}
+
+@keyframes glowPulse {
+  0% { box-shadow: 0 0 15px currentColor, 0 0 30px currentColor; }
+  100% { box-shadow: 0 0 25px currentColor, 0 0 50px currentColor; }
+}
+
+/* Laps list */
+#laps {
+  list-style: none;
+  max-height: 160px;
+  overflow-y: auto;
+  text-align: left;
+  padding-left: 10px;
+}
+
+#laps li {
+  background: rgba(255,255,255,0.15);
+  border-left: 3px solid #33ccff;
+  margin-bottom: 6px;
+  padding: 6px;
+  border-radius: 8px;
+  color: #333;
+  text-shadow: 0 0 5px #fff;
+  font-size: 0.9rem;
+}
